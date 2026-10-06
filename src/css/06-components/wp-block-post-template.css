@@ -1,0 +1,102 @@
+/* ===================================================================
+WP BLOCK POST TEMPLATE
+---
+WP block source:
+- https://github.com/WordPress/gutenberg/tree/trunk/packages/block-library/src/post-template
+- https://github.com/WordPress/WordPress/blob/master/wp-includes/blocks/post-template
+---
+Variables:
+--post-border
+--post-gap
+--post-image-aspect-ratio
+--post-image-min-block-size
+--post-padding
+--post-padding-block
+--post-padding-inline
+--post-template-gap-columns
+--post-template-gap-rows
+---
+Notes:
+- To customize most of this block and its parts, use the custom properties.
+=================================================================== */
+
+/* ===================================================================
+Post Template
+=================================================================== */
+
+.wp-block-post-template {
+	--post-gap: var(--space-s);
+	--post-template-gap-rows: var(--space-2xl);
+	--post-template-gap-columns: var(--space-m);
+	display: grid;
+	row-gap: var(--post-template-gap-rows, var(--block-gap, 1em));
+	column-gap: var(--post-template-gap-columns, var(--block-gap, 1em));
+
+	> * {
+		margin: 0;
+	}
+
+	&.is-layout-flow {
+		--post-image-aspect-ratio: 2 / 1;
+	}
+
+	/* -----------------------------------------------
+	Post
+	---
+	Note: this stylesheet targets the inner post container (`.post`) rather than the
+	outer `li.wp-block-post` wrapper. When authoring patterns, include an inner
+	container between the block wrapper and the post elements so styles apply
+	consistently in the editor and on the front end.
+	----------------------------------------------- */
+
+	.post:where(:not(.wp-block-post)) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--post-gap, var(--block-gap, 1rem));
+		min-block-size: 100%;
+		padding-block: var(--post-padding-block, var(--post-padding));
+		padding-inline: var(--post-padding-inline, var(--post-padding));
+		border: var(--post-border);
+
+		> * {
+			margin: 0;
+		}
+
+		/* Post Featured Image */
+		.wp-block-post-featured-image {
+			background-color: color-mix(in oklab, currentcolor 15%, transparent);
+
+			img {
+				aspect-ratio: var(--post-image-aspect-ratio, 16 / 10);
+			}
+		}
+
+		/* Post Title */
+		.wp-block-post-title {
+			--link-text-color: currentcolor;
+			--link-decoration-color: transparent;
+			--link-decoration-color-hover: currentcolor;
+			--link-decoration-thickness: from-font;
+			font-family: var(--font-display-family);
+			font-size: var(--text-size-2xl, revert);
+		}
+
+		/* Post Author & Post Date */
+		.wp-block-post-author,
+		.wp-block-post-author-name,
+		.wp-block-post-date {
+			font-size: var(--text-size-s);
+			font-weight: var(--font-body-weight-normal);
+		}
+
+		/* Post Excerpt */
+		> .wp-block-excerpt {
+			flex-grow: 1;
+		}
+
+		/* Read More */
+		> .wp-block-read-more:last-child {
+			margin-block-start: auto;
+		}
+	}
+}

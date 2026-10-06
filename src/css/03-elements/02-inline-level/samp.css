@@ -1,0 +1,15 @@
+/* ===================================================================
+SAMPLE OUTPUT
+---
+Resources:
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/samp
+---
+Notes:
+- To customize most of this block and its parts, use the custom properties.
+=================================================================== */
+
+samp {
+	font-family: var(--font-monospace-family, monospace);
+	font-size: var(--text-size-monospace, 0.8125em);
+	font-variant-ligatures: none;
+}

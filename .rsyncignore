@@ -1,0 +1,30 @@
+# Ignore this file itself
+/.rsyncignore
+
+# Ignore these unnecessary files and folders
+/.editorconfig
+/.git-blame-ignore-revs
+/.git/
+/.gitattributes
+/.github/
+/.gitignore
+/.npmrc
+/.nvmrc
+/.prettierignore
+/.vscode/
+/composer.json
+/composer.lock
+/docs/
+/node_modules/
+/package-lock.json
+/package.json
+/phpcs.xml
+/phpcs.xml.dist
+/pnpm-lock.yaml
+/postcss.config.js
+/prettier.config.js
+/README.md
+/scripts/
+/src/
+/stylelint.config.js
+/svgo.config.js

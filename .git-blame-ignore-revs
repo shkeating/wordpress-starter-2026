@@ -1,0 +1,24 @@
+# Ignore these commits when running `git blame`.
+#
+# This file lists commit hashes that should be ignored by `git blame`.
+# These revisions usually consist of code formatting changes.
+#
+# To enable this locally, run this command once in your terminal:
+# git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# --- INSTRUCTIONS ---
+# - Precede each commit hash with a comment containing the first line of its commit message.
+# - Append new commits to the bottom of the file in chronological order.
+# - Use the full 40-character hash, not a short hash.
+
+# Formatting: Applied new Prettier line-wrapping (printWidth: 120) to CSS files.
+d8eaca11cce6ca879ca755b4e208c7aeaaa75745
+
+# style(php): Apply Prettier formatting to codebase
+6b337b6c20cb7081b80c52dff9b93137f12b8754
+
+# style: Apply automatic markdownlint fixes
+a8af7e738dc8f5d4f421478aee15d9d5c5993f53
+
+# style: Format PHP files with single quotes
+f4a45a8654e1ce35007af73dcb4b090feeb67f6c
