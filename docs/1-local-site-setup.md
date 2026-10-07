@@ -10,6 +10,14 @@ This guide will walk you through setting up the WordPress site for local develop
 - [**PHP**](https://www.php.net/downloads.php)
 - [**Composer**](https://getcomposer.org/) (also available [via Homebrew](https://formulae.brew.sh/formula/composer))
 
+## GitHub Codespaces
+
+This repository includes a Codespaces development container for a fresh local WordPress site. Open the repository in a Codespace and choose **Reopen in Container** when prompted. The container installs Node.js 22 and Composer, builds the theme, and starts WordPress with MariaDB.
+
+Open the forwarded **WordPress** port (8080) and complete the WordPress installation form on first visit. Then go to **Appearance → Themes** and activate **Mid-Hudson Misfits**. The theme is mounted directly from this repository, so edits are available on the site immediately. WordPress files and the database persist across container rebuilds.
+
+To work with a copy of an existing production or staging site instead, use the LocalWP and WP Migrate workflow below.
+
 ## Step 1: Install and configure WP Migrate and Local
 
 Both are from WP Engine and are really well integrated.

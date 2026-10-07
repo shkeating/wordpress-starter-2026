@@ -1,0 +1,32 @@
+{
+	"name": "Mid-Hudson Misfits WordPress Theme",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "workspace",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "22"
+		},
+		"ghcr.io/devcontainers/features/php:1": {
+			"version": "none",
+			"installComposer": true
+		}
+	},
+	"forwardPorts": [8080],
+	"portsAttributes": {
+		"8080": {
+			"label": "WordPress",
+			"onAutoForward": "openBrowser"
+		}
+	},
+	"postCreateCommand": "npm ci && composer install && npm run build",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"bmewburn.vscode-intelephense-client",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
+	"remoteUser": "vscode"
+}
