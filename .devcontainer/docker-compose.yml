@@ -13,10 +13,8 @@ services:
         condition: service_healthy
     ports:
       - "8080:80"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     environment:
-      WORDPRESS_DB_HOST: host.docker.internal:3307
+      WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
@@ -28,8 +26,6 @@ services:
   db:
     image: mariadb:11.4
     restart: unless-stopped
-    ports:
-      - "3307:3306"
     environment:
       MARIADB_DATABASE: wordpress
       MARIADB_USER: wordpress
